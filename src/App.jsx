@@ -4,30 +4,37 @@ import Hero from './Components/About/About'
 import Projects from './Components/Work/Projects'
 import Skills from './Components/Skills/Skill'
 import Contact from './Components/Contact/Contact'
-import Footer from './Components/Footer/Footer'
+import Education from './Components/Education/Education'
 
 export default function App() {
   const [isDark, setIsDark] = useState(() => {
     if (typeof window === 'undefined') return false
+
+    const storedTheme = window.localStorage.getItem('theme')
+    if (storedTheme === 'dark') return true
+    if (storedTheme === 'light') return false
+
     return window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false
   })
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', isDark)
+    document.documentElement.style.colorScheme = isDark ? 'dark' : 'light'
+    window.localStorage.setItem('theme', isDark ? 'dark' : 'light')
   }, [isDark])
 
   const toggleTheme = () => setIsDark((d) => !d)
 
   return (
-    <div className="min-h-screen bg-paper dark:bg-ink transition-colors">
+    <div className="min-h-screen bg-[var(--surface)] text-[var(--text-primary)] transition-colors duration-300">
       <Navbar isDark={isDark} toggleTheme={toggleTheme} />
       <main>
         <Hero />
-        <Projects />
         <Skills />
+        <Projects />
+        <Education />
         <Contact />
       </main>
-      <Footer isDark={isDark} toggleTheme={toggleTheme} />
     </div>
   )
 }

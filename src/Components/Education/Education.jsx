@@ -1,65 +1,66 @@
-import React from "react";
-import { education } from "../../constants";
+import { education } from '../../constants';
 
 const Education = () => {
   return (
-    <section
-      id="education"
-      className="py-24 px-[8vw] md:px-[7vw] lg:px-[16vw] font-sans bg-skills-gradient clip-path-custom-3"
-    >
-      {/* Section Title */}
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-white">EDUCATION</h2>
-        <div className="w-32 h-1 bg-purple-500 mx-auto mt-4"></div>
-        <p className="text-gray-400 mt-4 text-lg font-semibold">
-          My education has been a journey of learning and development. Here are the details of my academic background.
-        </p>
+    <section id="education" className="mx-auto max-w-6xl px-6 py-20 sm:px-8 lg:px-10 lg:py-24">
+      <div className="mb-10 flex justify-center">
+        <h2 className="text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl">
+          Education
+        </h2>
       </div>
 
-      {/* Timeline */}
-      <div className="relative">
-        {/* Vertical timeline line */}
-        <div className="hidden sm:block absolute left-1/2 top-0 -translate-x-1/2 w-1 bg-gradient-to-b from-[#8245ec] to-white h-full z-0"></div>
+      <div className="relative mx-auto max-w-4xl">
+        <div className="absolute bottom-0 left-[0.9rem] top-0 w-px bg-[var(--border-subtle)]" />
 
-        <div className="flex flex-col gap-20">
-          {education.map((edu, idx) => (
-            <div
-              key={edu.id}
-              className={`relative flex flex-col sm:flex-row items-center ${
-                idx % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"
-              }`}
-            >
-              {/* Timeline Circle */}
-              <div className="z-10 flex-shrink-0 flex items-center justify-center absolute sm:static left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0">
-                <div className="bg-white border-4 border-[#8245ec] w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
-                  <img
-                    src={edu.img}
-                    alt={edu.school}
-                    className="w-10 h-10 object-contain rounded-full"
+        <div className="space-y-6">
+          {education.map((item, index) => {
+            const isHighlighted = index < 2;
+
+            return (
+              <div key={item.id} className="group relative flex items-start gap-4 md:gap-6">
+                <div className="relative z-10 mt-7 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[var(--surface-elevated)] bg-[var(--surface-elevated)] md:mt-8">
+                  <span
+                    className={`h-3.5 w-3.5 rounded-full transition-transform duration-300 group-hover:scale-110 ${isHighlighted ? 'bg-[#22C55E]' : 'bg-[var(--text-secondary)]'}`}
                   />
                 </div>
-              </div>
 
-              {/* Timeline Card */}
-              <div
-                className={`
-                  mt-20 sm:mt-0
-                  w-full sm:w-[48%]
-                  bg-gray-900 border border-white rounded-2xl shadow-2xl backdrop-blur-md
-                  p-6 sm:p-8
-                  transition-transform duration-300 hover:scale-105
-                  ${idx % 2 === 0 ? "sm:ml-12" : "sm:mr-12"}
-                  z-10
-                `}
-              >
-                <h3 className="text-xl font-semibold text-white">{edu.degree}</h3>
-                <h4 className="text-md text-gray-300">{edu.school}</h4>
-                <p className="text-sm text-gray-500 mt-1">{edu.date}</p>
-                <p className="mt-2 text-gray-400 font-bold">Grade: {edu.grade}</p>
-                <p className="mt-2 text-gray-400">{edu.desc}</p>
+                <article className="w-full rounded-[20px] border border-[var(--border-subtle)] bg-[var(--surface-elevated)] p-5 shadow-[0_12px_30px_var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_var(--shadow-soft)] sm:p-6 md:p-7">
+                  <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+                    <div className="flex min-w-0 flex-1 items-start gap-4">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--surface-muted)]">
+                        <img src={item.img} alt={`${item.school} logo`} className="h-8 w-8 object-contain" />
+                      </div>
+
+                      <div className="min-w-0 flex-1">
+                        <div className="mb-3 flex flex-wrap items-center gap-3">
+                          <span className="rounded-full bg-violet-500/10 px-3 py-1 text-sm font-semibold text-violet-600 dark:text-violet-300">
+                            {item.grade}
+                          </span>
+                        </div>
+
+                        <div className="flex flex-wrap items-start justify-between gap-3">
+                          <div className="min-w-0">
+                            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--text-secondary)]">
+                              {index === 0 ? 'Schooling' : 'University'}
+                            </p>
+                            <h3 className="mt-1 text-lg font-semibold leading-snug text-[var(--text-primary)] sm:text-xl">
+                              {item.school}
+                            </h3>
+                          </div>
+                          <div className="shrink-0 text-sm font-semibold text-[var(--text-primary)] sm:pt-1">
+                            {item.date}
+                          </div>
+                        </div>
+
+                        <p className="mt-2 text-sm font-medium text-[var(--text-secondary)]">{item.degree}</p>
+                        <p className="mt-2 text-sm leading-7 text-[var(--text-secondary)]">{item.desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

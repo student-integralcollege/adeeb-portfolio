@@ -1,11 +1,17 @@
 // tailwind.config.js
 export default {
+  darkMode: 'class',
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
+      colors: {
+        ink: '#111111',
+        paper: '#ffffff',
+        success: '#16a34a',
+      },
       keyframes: {
         blob: {
           '0%': { transform: 'scale(1)' },

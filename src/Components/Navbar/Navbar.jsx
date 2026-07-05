@@ -1,32 +1,56 @@
-import { Sun, Moon } from 'lucide-react'
-import { profile, navLinks } from '../../assets/Data'
+import { Home, Sun, Moon } from "lucide-react";
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 export default function Navbar({ isDark, toggleTheme }) {
   return (
-    <header className="sticky top-0 z-40 backdrop-blur bg-paper/80 dark:bg-ink/80 border-b border-black/5 dark:border-white/5">
-      <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 font-semibold text-ink dark:text-paper">
-          <span className="w-8 h-8 rounded-full bg-ink dark:bg-paper text-paper dark:text-ink flex items-center justify-center text-sm font-bold">
-            {profile.avatarInitial}
-          </span>
+    <nav className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2">
+      <div className="flex items-center rounded-full border border-[var(--border-subtle)] bg-[var(--surface-elevated)]/95 px-3 py-2 shadow-2xl bg-white/90">
+        <a
+          href="#top"
+          className="rounded-full p-3 text-[var(--text-primary)] transition-colors hover:bg-[var(--surface-muted)]"
+        >
+          <Home size={22} />
         </a>
 
-        <nav className="hidden sm:flex items-center gap-6 text-sm text-ink/70 dark:text-paper/70">
-          {navLinks.map((link) => (
-            <a key={link.label} href={link.href} className="hover:text-ink dark:hover:text-paper transition-colors">
-              {link.label}
-            </a>
-          ))}
-        </nav>
+        <div className="mx-2 h-8 w-px bg-[var(--border-subtle)]" />
+
+        <a
+          href="https://github.com/student-integralcollege"
+          target="_blank"
+          rel="noreferrer"
+          className="rounded-full p-3 text-[var(--text-primary)] transition-colors hover:bg-[var(--surface-muted)]"
+        >
+          <FaGithub size={22} />
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/syed-mohd-adeeb-hussain-395670295"
+          target="_blank"
+          rel="noreferrer"
+          className="rounded-full p-3 text-[var(--text-primary)] transition-colors hover:bg-[var(--surface-muted)]"
+        >
+          <FaLinkedin size={22} />
+        </a>
+
+        <a
+          href="https://x.com/AdeebHu78527761"
+          target="_blank"
+          rel="noreferrer"
+          className="rounded-full p-3 text-[var(--text-primary)] transition-colors hover:bg-[var(--surface-muted)]"
+        >
+          <FaXTwitter size={22} />
+        </a>
+
+        <div className="mx-2 h-8 w-px bg-[var(--border-subtle)]" />
 
         <button
           onClick={toggleTheme}
-          aria-label="Toggle color theme"
-          className="w-9 h-9 rounded-full flex items-center justify-center text-ink/70 dark:text-paper/70 hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+          aria-label="Toggle Theme"
+          className="rounded-full p-3 text-[var(--text-primary)] transition-colors hover:bg-[var(--surface-muted)]"
         >
-          {isDark ? <Sun size={18} /> : <Moon size={18} />}
+          {isDark ? <Sun size={22} /> : <Moon size={22} />}
         </button>
       </div>
-    </header>
-  )
+    </nav>
+  );
 }
