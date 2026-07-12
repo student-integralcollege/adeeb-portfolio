@@ -28,7 +28,7 @@ export default function Contact() {
                 autoComplete="name"
                 required
                 placeholder="Your name"
-                className="w-full rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-muted)] px-4 py-3 text-sm text-[var(--text-primary)] outline-none transition focus:border-[var(--accent)] focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-900/40"
+                className="w-full rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-muted)] px-4 py-3 text-sm text-[var(--text-primary)] outline-none transition focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20"
               />
             </div>
 
@@ -43,7 +43,7 @@ export default function Contact() {
                 autoComplete="email"
                 required
                 placeholder="you@example.com"
-                className="w-full rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-muted)] px-4 py-3 text-sm text-[var(--text-primary)] outline-none transition focus:border-[var(--accent)] focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-900/40"
+                className="w-full rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-muted)] px-4 py-3 text-sm text-[var(--text-primary)] outline-none transition focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20"
               />
             </div>
 
@@ -57,7 +57,7 @@ export default function Contact() {
                 rows="5"
                 required
                 placeholder="Tell me about your idea..."
-                className="w-full rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-muted)] px-4 py-3 text-sm text-[var(--text-primary)] outline-none transition focus:border-[var(--accent)] focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-900/40"
+                className="w-full rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-muted)] px-4 py-3 text-sm text-[var(--text-primary)] outline-none transition focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20"
               />
             </div>
           </div>
@@ -65,7 +65,7 @@ export default function Contact() {
           <div className="mt-7 flex justify-center">
             <button
               type="submit"
-              className="inline-flex w-full max-w-[220px] items-center justify-center rounded-2xl bg-[#000000] px-5 py-3 text-sm font-semibold text-[#FFFFFF] transition duration-300 hover:-translate-y-0.5 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 dark:bg-[#FFFFFF] dark:text-[#000000]"
+              className="inline-flex w-full max-w-[220px] items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-md transition duration-300 hover:-translate-y-0.5 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/40 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-slate-200"
             >
               Send message
             </button>

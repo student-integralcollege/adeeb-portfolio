@@ -1,92 +1,110 @@
 import profileImg from '../../assets/profile.jpg';
+import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
+import { MapPin } from 'lucide-react';
 
 export default function About() {
-  const profile = {
-    bio: [
-      { text: 'I’m a frontend developer who enjoys building thoughtful interfaces that feel as good as they look.', bold: false },
-      { text: ' My focus is on clean UI, responsive layouts, and polished user experiences.', bold: true },
-    ],
-    availability: [
-      { text: 'Available for freelance projects, internships, and full-time opportunities.', bold: false },
-      { text: ' I’m currently open to new collaborations.', bold: true },
-    ],
-  };
-
   return (
-    <section id="top" className="mx-auto max-w-6xl px-6 pb-16 pt-16 sm:px-8 lg:px-10 lg:pb-20 lg:pt-20">
-      <style>{`
-        @keyframes fadeUp {
-          from {
-            opacity: 0;
-            transform: translateY(16px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
+    <section
+      id="about"
+      className="mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-10 lg:py-28"
+    >
+      <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
 
-      <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
-        <div className="animate-[fadeUp_0.45s_ease-out_both]">
-          <div className="flex flex-wrap items-center gap-3">
-            <h1 className="text-3xl font-extrabold tracking-tight text-[var(--text-primary)] sm:text-4xl lg:text-5xl">
-              Hi, I&apos;m Adeeb
-            </h1>
+        {/* About Content - Left Side */}
+        <div>
+          <h2 className="text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl">
+            About me
+          </h2>
 
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#22C55E] px-3 py-1.5 text-xs font-semibold text-white shadow-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-white" />
+          <div className="mt-4 h-1 w-10 rounded-full bg-[var(--text-primary)]" />
+
+          {/* Location */}
+          <div className="mt-7 flex items-center gap-2 text-sm font-medium text-[var(--text-secondary)]">
+            <MapPin className="h-4 w-4" />
+            <span>Lucknow, Uttar Pradesh, India</span>
+            <span className="inline-flex items-center gap-2 border border-emerald-500 rounded-full bg-emerald-100 px-4 py-2 text-xs font-semibold text-black-700 dark:bg-emerald-500/20 dark:text-emerald-300">
               Open to Work
+              <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
             </span>
           </div>
 
-          <p className="mt-5 max-w-2xl text-base leading-8 text-[var(--text-secondary)] sm:text-lg">
-            {profile.bio.map((chunk, i) => (
-              <span key={i} className={chunk.bold ? 'font-semibold text-[var(--text-primary)]' : ''}>
-                {chunk.text}
-              </span>
-            ))}
-          </p>
+          {/* About Description */}
+          <div className="mt-6 max-w-2xl space-y-5">
+            <p className="text-base leading-8 text-[var(--text-secondary)] sm:text-lg">
+              I'm {' '}
+              <span className="font-semibold text-[var(--text-primary)]">
+                Adeeb Hussain
+              </span>{' '}
+              a Full Stack Developer passionate about building modern, scalable, and user-friendly web
+              applications.
+            </p>
 
-          <p className="mt-3 max-w-2xl text-base leading-8 text-[var(--text-secondary)] sm:text-lg">
-            {profile.availability.map((chunk, i) => (
-              <span key={i} className={chunk.bold ? 'font-semibold text-[var(--text-primary)]' : ''}>
-                {chunk.text}
-              </span>
-            ))}
-          </p>
+            <p className="text-base leading-8 text-[var(--text-secondary)] sm:text-lg">
+              I enjoy working with the{' '}
+              <span className="font-semibold text-[var(--text-primary)]">
+                MERN Stack
+              </span>{' '}
+              and creating clean interfaces, powerful backend systems, and
+              real-world SaaS applications.
+            </p>
 
+            <p className="text-base leading-8 text-[var(--text-secondary)] sm:text-lg">
+              Currently, I'm focused on improving my development skills,
+              contributing to open source, and building projects that solve
+              real-world problems.
+            </p>
+          </div>
+
+          {/* Social Links */}
           <div className="mt-8 flex flex-wrap items-center gap-3">
+
+            {/* GitHub */}
             <a
-              href="https://drive.google.com/file/d/1HsOHFjzrKDzTEBbDbb-oXuWY9KZMPtBj/view?usp=drivesdk"
-              className="inline-flex items-center gap-2 rounded-2xl bg-black px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90 white:bg-dark white:text-white"
+              href="https://github.com/student-integralcollege"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub Profile"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-black text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-white dark:text-black"
             >
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8">
-                <path d="M12 3v12" strokeLinecap="round" />
-                <path d="m7 8 5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M5 19h14" strokeLinecap="round" />
-              </svg>
-              Resume
+              <FaGithub className="h-5 w-5" />
             </a>
 
+            {/* LinkedIn */}
             <a
-              href="#contact"
-              className="inline-flex items-center gap-2 rounded-2xl bg-black px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90 white:bg-dark white:text-white"
+              href="https://www.linkedin.com/in/syed-mohd-adeeb-hussain-395670295"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn Profile"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-black text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-white dark:text-black"
             >
-              Get in Touch
+              <FaLinkedin className="h-5 w-5" />
             </a>
+
+            {/* Twitter */}
+            <a
+              href="https://x.com/AdeebHu78527761"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="X Profile"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-black text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-white dark:text-black"
+            >
+              <FaXTwitter className="h-5 w-5" />
+            </a>
+
           </div>
         </div>
 
+        {/* Profile Image - Right Side */}
         <div className="flex justify-center lg:justify-end">
-          <div className="group relative aspect-square w-full max-w-[320px] overflow-hidden rounded-full border border-[var(--border-subtle)] bg-[var(--surface-elevated)] p-2 shadow-[0_20px_50px_var(--shadow-soft)] transition duration-300 hover:scale-[1.03]">
+          <div className="group relative h-[320px] w-[320px] shrink-0 overflow-hidden rounded-full border border-[var(--border-subtle)] bg-[var(--surface-elevated)] shadow-[0_20px_50px_var(--shadow-soft)] sm:h-[380px] sm:w-[380px]">
             <img
               src={profileImg}
               alt="Adeeb Hussain"
-              className="h-full w-full rounded-full object-cover transition duration-300 group-hover:scale-105"
+              className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
             />
           </div>
         </div>
+
       </div>
     </section>
   );

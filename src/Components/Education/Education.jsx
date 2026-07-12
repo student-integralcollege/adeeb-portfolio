@@ -2,65 +2,79 @@ import { education } from '../../constants';
 
 const Education = () => {
   return (
-    <section id="education" className="mx-auto max-w-6xl px-6 py-20 sm:px-8 lg:px-10 lg:py-24">
-      <div className="mb-10 flex justify-center">
+    <section
+      id="education"
+      className="mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-10 lg:py-24"
+    >
+      {/* Section Heading */}
+      <div className="mb-14 flex flex-col items-center justify-center">
         <h2 className="text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl">
           Education
         </h2>
+        <div className="mt-4 h-1 w-10 rounded-full bg-[var(--text-primary)]" />
       </div>
 
-      <div className="relative mx-auto max-w-4xl">
-        <div className="absolute bottom-0 left-[0.9rem] top-0 w-px bg-[var(--border-subtle)]" />
+      {/* Education Timeline */}
+      <div className="relative mx-auto max-w-6xl">
 
-        <div className="space-y-6">
-          {education.map((item, index) => {
-            const isHighlighted = index < 2;
+        {/* Vertical Timeline Line */}
+        <div className="absolute bottom-3 left-3 top-3 w-[2px] -translate-x-1/2 bg-[var(--border-subtle)]" />
+        <div className="space-y-7">
+          {education.map((item) => (
+            <div key={item.id} className="group relative flex items-center gap-7">
+              {/* Timeline Dot */}
+              <div className="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center">
+                <span className="h-4 w-4 rounded-full bg-[var(--text-primary)] ring-4 ring-[var(--surface-base)] transition-transform duration-300 group-hover:scale-125" />
+              </div>
 
-            return (
-              <div key={item.id} className="group relative flex items-start gap-4 md:gap-6">
-                <div className="relative z-10 mt-7 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[var(--surface-elevated)] bg-[var(--surface-elevated)] md:mt-8">
-                  <span
-                    className={`h-3.5 w-3.5 rounded-full transition-transform duration-300 group-hover:scale-110 ${isHighlighted ? 'bg-[#22C55E]' : 'bg-[var(--text-secondary)]'}`}
-                  />
-                </div>
+              {/* Education Card */}
+              <article className="w-full rounded-[24px] border border-[var(--border-subtle)] bg-[var(--surface-elevated)] px-6 py-7 shadow-[0_10px_35px_var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_var(--shadow-soft)] sm:px-8">
+                <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
 
-                <article className="w-full rounded-[20px] border border-[var(--border-subtle)] bg-[var(--surface-elevated)] p-5 shadow-[0_12px_30px_var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_var(--shadow-soft)] sm:p-6 md:p-7">
-                  <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
-                    <div className="flex min-w-0 flex-1 items-start gap-4">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--surface-muted)]">
-                        <img src={item.img} alt={`${item.school} logo`} className="h-8 w-8 object-contain" />
-                      </div>
+                  {/* Left Section */}
+                  <div className="flex min-w-0 flex-1 items-start gap-5">
 
-                      <div className="min-w-0 flex-1">
-                        <div className="mb-3 flex flex-wrap items-center gap-3">
-                          <span className="rounded-full bg-violet-500/10 px-3 py-1 text-sm font-semibold text-violet-600 dark:text-violet-300">
-                            {item.grade}
-                          </span>
-                        </div>
+                    {/* Education Logo */}
+                    <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-muted)]">
+                      <img
+                        src={item.img}
+                        alt={`${item.school} logo`}
+                        className="h-8 w-8 object-contain"
+                      />
+                    </div>
 
-                        <div className="flex flex-wrap items-start justify-between gap-3">
-                          <div className="min-w-0">
-                            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--text-secondary)]">
-                              {index === 0 ? 'Schooling' : 'University'}
-                            </p>
-                            <h3 className="mt-1 text-lg font-semibold leading-snug text-[var(--text-primary)] sm:text-xl">
-                              {item.school}
-                            </h3>
-                          </div>
-                          <div className="shrink-0 text-sm font-semibold text-[var(--text-primary)] sm:pt-1">
-                            {item.date}
-                          </div>
-                        </div>
+                    {/* Education Information */}
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-xl font-bold leading-snug text-[var(--text-primary)] sm:text-2xl">
+                        {item.school}
+                      </h3>
 
-                        <p className="mt-2 text-sm font-medium text-[var(--text-secondary)]">{item.degree}</p>
-                        <p className="mt-2 text-sm leading-7 text-[var(--text-secondary)]">{item.desc}</p>
-                      </div>
+                      <p className="mt-1 text-base font-medium text-[var(--text-secondary)]">
+                        {item.degree}
+                      </p>
+
+                      <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--text-secondary)] sm:text-base">
+                        {item.desc}
+                      </p>
                     </div>
                   </div>
-                </article>
-              </div>
-            );
-          })}
+
+                  {/* Right Section */}
+                  <div className="flex shrink-0 items-center justify-between gap-4 sm:flex-col sm:items-end">
+                    {/* Education Date */}
+                    <p className="whitespace-nowrap text-sm font-semibold text-[var(--text-primary)]">
+                      {item.date}
+                    </p>
+
+                    {/* Grade */}
+                    <span className="rounded-full bg-[var(--surface-muted)] px-5 py-2 text-sm font-bold text-[var(--text-primary)]">
+                      {item.grade}
+                    </span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          ))}
         </div>
       </div>
     </section>

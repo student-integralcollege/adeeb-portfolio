@@ -5,6 +5,7 @@ import Projects from './Components/Work/Projects'
 import Skills from './Components/Skills/Skill'
 import Contact from './Components/Contact/Contact'
 import Education from './Components/Education/Education'
+import GithubCalendar from './Components/Github/GithubCalendar'
 
 export default function App() {
   const [isDark, setIsDark] = useState(() => {
@@ -26,12 +27,13 @@ export default function App() {
   const toggleTheme = () => setIsDark((d) => !d)
 
   return (
-    <div className="min-h-screen bg-[var(--surface)] text-[var(--text-primary)] transition-colors duration-300">
+    <div className="min-h-screen bg-[var(--surface)] text-[var(--text-primary)] transition-colors duration-300 grid-bg">
       <Navbar isDark={isDark} toggleTheme={toggleTheme} />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <Skills />
         <Projects />
+        <GithubCalendar />
         <Education />
         <Contact />
       </main>
