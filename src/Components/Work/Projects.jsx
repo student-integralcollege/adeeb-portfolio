@@ -1,15 +1,15 @@
-import ProjectCard from './Projectcard'
-import { projects } from '../../constants'
+import ProjectCard from "./Projectcard";
+import { projects } from "../../constants";
 
 export default function Projects() {
   return (
     <section id="projects" className="mx-auto max-w-6xl px-6 py-16 sm:px-8 lg:px-10">
-      <div className="mx-auto mb-10 max-w-3xl text-center">
+      <div className="mx-auto mb-10 max-w-5xl text-center">
         <h2 className="text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl">
-          Featured Projects
+          Projects
         </h2>
         <p className="mt-3 text-base leading-8 text-[var(--text-secondary)]">
-          A curated collection of web applications demonstrating my technical capabilities and attention to detail.
+          A collection of projects that showcase my skills, creativity, and passion for building modern web applications.
         </p>
       </div>
 
@@ -19,5 +19,5 @@ export default function Projects() {
         ))}
       </div>
     </section>
-  )
+  );
 }

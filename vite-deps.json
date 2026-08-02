@@ -1,7 +1,0 @@
-﻿{
-  "postcss": "^8.5.15",
-  "rolldown": "1.0.3",
-  "picomatch": "^4.0.4",
-  "tinyglobby": "^0.2.17",
-  "lightningcss": "^1.32.0"
-}

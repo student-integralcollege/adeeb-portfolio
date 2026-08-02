@@ -6,7 +6,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-10 lg:py-28"
+      className="mt-14 mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-10 lg:py-28"
     >
       <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
 

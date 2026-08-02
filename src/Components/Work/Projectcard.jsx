@@ -28,7 +28,7 @@ export default function ProjectCard({ project }) {
       <div className="flex flex-1 flex-col p-5">
         <div className="flex-1">
           <div className="flex items-center justify-between gap-2">
-            <h3 className="text-lg font-bold text-[var(--text-primary)] transition-colors group-hover:text-[var(--accent)]">
+            <h3 className="text-lg font-bold text-[var(--text-primary)] transition-colors">
               {project.title}
             </h3>
             {project.status && (
@@ -47,7 +47,7 @@ export default function ProjectCard({ project }) {
             {(project.tags || []).map((t) => (
               <span
                 key={t}
-                className="rounded-lg border border-[var(--border-subtle)] bg-[var(--surface-muted)] px-2.5 py-1 text-[11px] font-medium text-[var(--text-secondary)]"
+                className="rounded-lg border border-[var(--border-subtle)] px-2.5 py-1 text-[11px] font-medium dark:bg-slate-100 dark:text-slate-900 transition duration-300 bg-slate-900 text-white"
               >
                 {t}
               </span>
@@ -61,7 +61,7 @@ export default function ProjectCard({ project }) {
             href={project.webapp}
             target="_blank"
             rel="noreferrer"
-            className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-semibold text-white shadow-sm transition hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-slate-200"
+            className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-semibold text-white shadow-sm transition dark:bg-slate-100 dark:text-slate-900 "
           >
             <ExternalLink size={13} />
             Live Demo
@@ -70,7 +70,7 @@ export default function ProjectCard({ project }) {
             href={project.github}
             target="_blank"
             rel="noreferrer"
-            className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-elevated)] px-4 py-2.5 text-xs font-semibold text-[var(--text-primary)] shadow-sm transition hover:bg-[var(--surface-muted)]"
+            className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-semibold text-white shadow-sm transition dark:bg-slate-100 dark:text-slate-900 "
           >
             <FaGithub size={13} />
             Source Code

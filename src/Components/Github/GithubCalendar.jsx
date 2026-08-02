@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Calendar, GitPullRequest, RefreshCw } from 'lucide-react';
 
-// Theme-aware tailwind colors for contribution levels (None to High activity)
+
 const LEVEL_COLORS = {
   NONE: 'bg-slate-100 dark:bg-slate-800/40',
   FIRST_QUARTILE: 'bg-emerald-100 dark:bg-emerald-950/40',
@@ -37,13 +37,15 @@ export default function GithubCalendar() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isFallback, setIsFallback] = useState(false);
+  const [weeksToShow, setWeeksToShow] = useState(53);
 
   // Fetch public contributions from the deno server proxy
   const fetchContributions = async () => {
     setLoading(true);
     setIsFallback(false);
     try {
-      const response = await fetch('https://github-contributions-api.deno.dev/student-integralcollege.json');
+      // Use proxied path in development to avoid CORS; Vite proxy maps /api/github -> external API
+      const response = await fetch('/api/github/student-integralcollege.json');
       if (!response.ok) {
         throw new Error('Server response was not OK');
       }
@@ -66,6 +68,18 @@ export default function GithubCalendar() {
 
   useEffect(() => {
     fetchContributions();
+
+    const updateWeeks = () => {
+      const w = typeof window !== 'undefined' ? window.innerWidth : 1024;
+      if (w < 420) setWeeksToShow(18);
+      else if (w < 520) setWeeksToShow(22);
+      else if (w < 640) setWeeksToShow(32);
+      else setWeeksToShow(53);
+    };
+
+    updateWeeks();
+    window.addEventListener('resize', updateWeeks);
+    return () => window.removeEventListener('resize', updateWeeks);
   }, []);
 
   return (
@@ -122,11 +136,11 @@ export default function GithubCalendar() {
         {/* Scrollable Calendar Grid wrapper */}
         <div className="relative overflow-hidden rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-muted)]/50 p-4">
           <div className="overflow-x-auto pb-2 scrollbar-thin">
-            <div className="flex min-w-[760px] select-none gap-[3px]">
+            <div className="flex select-none gap-[3px]">
               
               {loading ? (
                 // Show pulsing grey square placeholders while loading
-                Array.from({ length: 53 }).map((_, w) => (
+                Array.from({ length: weeksToShow }).map((_, w) => (
                   <div key={w} className="flex flex-col gap-[3px]">
                     {Array.from({ length: 7 }).map((_, d) => (
                       <div
@@ -141,8 +155,8 @@ export default function GithubCalendar() {
                   </div>
                 ))
               ) : (
-                // Render the real or mock contribution squares
-                data?.contributions?.map((week, w) => (
+                // Render the real or mock contribution squares (limited on small screens)
+                data?.contributions?.slice(0, weeksToShow).map((week, w) => (
                   <div key={w} className="flex flex-col gap-[3px]">
                     {week.map((day, d) => {
                       if (!day) return <div key={d} className="h-[10px] w-[10px] bg-transparent" />;
@@ -171,7 +185,7 @@ export default function GithubCalendar() {
           <div className="flex items-center gap-1.5">
             <span>Less</span>
             <div className="h-2.5 w-2.5 rounded-[1px] bg-slate-100 dark:bg-slate-800/40" />
-            <div className="h-2.5 w-2.5 rounded-[1px] bg-emerald-100 dark:bg-emerald-950/40" />
+            <div className="h-2.5 w-2.5 rounded-[1px] bg-emerald-100 dark:bg-emerald-700/40" />
             <div className="h-2.5 w-2.5 rounded-[1px] bg-emerald-300 dark:bg-emerald-800/60" />
             <div className="h-2.5 w-2.5 rounded-[1px] bg-emerald-400 dark:bg-emerald-600/70" />
             <div className="h-2.5 w-2.5 rounded-[1px] bg-emerald-600 dark:bg-emerald-400" />
