@@ -21,6 +21,17 @@ html {
   scroll-behavior: smooth;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-width: 0;
+  overflow-x: clip;
+}
+
 html.dark {
   color-scheme: dark;
   --surface: #0b0b0f;
@@ -37,11 +48,19 @@ html.dark {
 }
 
 body {
+  margin: 0;
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   background-color: var(--surface);
   color: var(--text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
 }
 
 .grid-bg {

@@ -1,6 +1,46 @@
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function Contact() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const form = useRef();
+
+    const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        "service_p1gym88", 
+        "template_1y9evx8",  
+        form.current,
+        "j35GNaSjIqVZI7blk" 
+      )
+      .then(
+        () => {
+          form.current.reset();
+          toast.success("Message sent successfully! ✅", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "dark",
+          });
+        },
+        (error) => {
+          console.error("Error sending message:", error);
+          toast.error("Failed to send message. Please try again.", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "dark",
+          });
+        }
+      );
   };
 
   return (
@@ -15,7 +55,7 @@ export default function Contact() {
       </div>
 
       <div className="mx-auto max-w-xl overflow-hidden rounded-[2rem] border border-[var(--border-subtle)] bg-[linear-gradient(135deg,var(--surface-elevated),var(--surface-muted))] p-5 shadow-[0_18px_50px_var(--shadow-soft)] sm:p-7 lg:p-8">
-        <form onSubmit={handleSubmit} className="w-full">
+        <form ref={form} onSubmit={sendEmail} className="w-full">
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="sm:col-span-2">
               <label htmlFor="name" className="mb-2 block text-sm font-medium text-[var(--text-primary)]">
@@ -72,6 +112,7 @@ export default function Contact() {
           </div>
         </form>
       </div>
+      <ToastContainer />
     </section>
   );
 }

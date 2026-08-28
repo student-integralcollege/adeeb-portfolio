@@ -3,7 +3,7 @@ import { FaGithub } from 'react-icons/fa'
 
 export default function ProjectCard({ project }) {
   return (
-    <div className="group flex flex-col overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-elevated)] shadow-[0_12px_30px_var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_var(--shadow-soft)]">
+    <div className="group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-elevated)] shadow-[0_12px_30px_var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_var(--shadow-soft)]">
       {/* Project Image Header */}
       <div className="relative aspect-video w-full overflow-hidden bg-[var(--surface-muted)] border-b border-[var(--border-subtle)]">
         {!project.image ? (
@@ -25,10 +25,10 @@ export default function ProjectCard({ project }) {
       </div>
 
       {/* Project Info & CTAs */}
-      <div className="flex flex-1 flex-col p-5">
+      <div className="flex flex-1 flex-col p-4 sm:p-5">
         <div className="flex-1">
-          <div className="flex items-center justify-between gap-2">
-            <h3 className="text-lg font-bold text-[var(--text-primary)] transition-colors">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h3 className="min-w-0 text-lg font-bold text-[var(--text-primary)] transition-colors">
               {project.title}
             </h3>
             {project.status && (
@@ -39,7 +39,7 @@ export default function ProjectCard({ project }) {
             )}
           </div>
 
-          <p className="mt-2.5 line-clamp-3 text-sm leading-relaxed text-[var(--text-secondary)] min-h-[60px]">
+          <p className="mt-2.5 text-sm leading-relaxed text-[var(--text-secondary)] sm:line-clamp-3 sm:min-h-[60px]">
             {project.description}
           </p>
 
@@ -56,12 +56,12 @@ export default function ProjectCard({ project }) {
         </div>
 
         {/* Action Buttons at Bottom */}
-        <div className="mt-6 flex items-center gap-3 border-t border-[var(--border-subtle)] pt-4">
+        <div className="mt-6 grid grid-cols-1 gap-3 border-t border-[var(--border-subtle)] pt-4 min-[360px]:grid-cols-2">
           <a
             href={project.webapp}
             target="_blank"
             rel="noreferrer"
-            className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-semibold text-white shadow-sm transition dark:bg-slate-100 dark:text-slate-900 "
+            className="inline-flex min-h-10 min-w-0 items-center justify-center gap-1.5 rounded-xl bg-slate-900 px-3 py-2.5 text-center text-xs font-semibold text-white shadow-sm transition dark:bg-slate-100 dark:text-slate-900 sm:px-4"
           >
             <ExternalLink size={13} />
             Live Demo
@@ -70,7 +70,7 @@ export default function ProjectCard({ project }) {
             href={project.github}
             target="_blank"
             rel="noreferrer"
-            className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-semibold text-white shadow-sm transition dark:bg-slate-100 dark:text-slate-900 "
+            className="inline-flex min-h-10 min-w-0 items-center justify-center gap-1.5 rounded-xl bg-slate-900 px-3 py-2.5 text-center text-xs font-semibold text-white shadow-sm transition dark:bg-slate-100 dark:text-slate-900 sm:px-4"
           >
             <FaGithub size={13} />
             Source Code

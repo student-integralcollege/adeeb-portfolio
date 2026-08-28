@@ -6,31 +6,30 @@ export default function About() {
   return (
     <section
       id="about"
-      className="mt-14 mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-10 lg:py-28"
-    >
-      <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
+      className="mx-auto mt-16 max-w-7xl px-4 py-10 sm:mt-20 sm:px-6 sm:py-16 md:px-8 lg:px-10 lg:py-28">
+      <div className="grid min-w-0 items-center gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(280px,0.8fr)] lg:gap-16 xl:gap-20">
 
         {/* About Content - Left Side */}
-        <div>
+        <div className="order-2 text-center lg:order-1 lg:text-left">
           <h2 className="text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl">
             About me
           </h2>
 
-          <div className="mt-4 h-1 w-10 rounded-full bg-[var(--text-primary)]" />
+          <div className="mx-auto mt-4 h-1 w-10 rounded-full bg-[var(--text-primary)] lg:mx-0" />
 
           {/* Location */}
-          <div className="mt-7 flex items-center gap-2 text-sm font-medium text-[var(--text-secondary)]">
-            <MapPin className="h-4 w-4" />
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm font-medium text-[var(--text-secondary)] lg:justify-start">
+            <MapPin className="h-4 w-4 shrink-0" />
             <span>Lucknow, Uttar Pradesh, India</span>
-            <span className="inline-flex items-center gap-2 border border-emerald-500 rounded-full bg-emerald-100 px-4 py-2 text-xs font-semibold text-black-700 dark:bg-emerald-500/20 dark:text-emerald-300">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500 bg-emerald-100 px-2.5 py-1 text-[10px] font-semibold text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-300 sm:gap-2 sm:px-4 sm:py-2 sm:text-xs">
               Open to Work
-              <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500 sm:h-2 sm:w-2" />
             </span>
           </div>
 
           {/* About Description */}
-          <div className="mt-6 max-w-2xl space-y-5">
-            <p className="text-base leading-8 text-[var(--text-secondary)] sm:text-lg">
+          <div className="mx-auto mt-5 max-w-2xl space-y-3.5 sm:mt-6 sm:space-y-5 lg:mx-0">
+            <p className="text-[clamp(0.95rem,2.5vw,1.125rem)] leading-7 text-[var(--text-secondary)] sm:leading-8">
               I'm {' '}
               <span className="font-semibold text-[var(--text-primary)]">
                 Adeeb Hussain
@@ -39,7 +38,7 @@ export default function About() {
               applications.
             </p>
 
-            <p className="text-base leading-8 text-[var(--text-secondary)] sm:text-lg">
+            <p className="text-[clamp(0.95rem,2.5vw,1.125rem)] leading-7 text-[var(--text-secondary)] sm:leading-8">
               I enjoy working with the{' '}
               <span className="font-semibold text-[var(--text-primary)]">
                 MERN Stack
@@ -48,7 +47,7 @@ export default function About() {
               real-world SaaS applications.
             </p>
 
-            <p className="text-base leading-8 text-[var(--text-secondary)] sm:text-lg">
+            <p className="text-[clamp(0.95rem,2.5vw,1.125rem)] leading-7 text-[var(--text-secondary)] sm:leading-8">
               Currently, I'm focused on improving my development skills,
               contributing to open source, and building projects that solve
               real-world problems.
@@ -56,7 +55,7 @@ export default function About() {
           </div>
 
           {/* Social Links */}
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
 
             {/* GitHub */}
             <a
@@ -95,8 +94,8 @@ export default function About() {
         </div>
 
         {/* Profile Image - Right Side */}
-        <div className="flex justify-center lg:justify-end">
-          <div className="group relative h-[320px] w-[320px] shrink-0 overflow-hidden rounded-full border border-[var(--border-subtle)] bg-[var(--surface-elevated)] shadow-[0_20px_50px_var(--shadow-soft)] sm:h-[380px] sm:w-[380px]">
+        <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
+          <div className="group relative aspect-square w-[min(64vw,220px)] shrink-0 overflow-hidden rounded-full border border-[var(--border-subtle)] bg-[var(--surface-elevated)] shadow-[0_20px_50px_var(--shadow-soft)] sm:w-[min(52vw,380px)]">
             <img
               src={profileImg}
               alt="Adeeb Hussain"
