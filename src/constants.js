@@ -4,9 +4,9 @@ import clgLogo from './assets/education_logo/integral.png';
 
 // Project Section Logo's
 import landing from './assets/work_logo/landing_page.png';
-import game from './assets/work_logo/Tic Tac toe.png';
+import taskManager from './assets/work_logo/Task manager.png';
 import background_removal from './assets/work_logo/removal.png';
-import port from './assets/work_logo/myport.png';
+import expenseImage from './assets/work_logo/expense image.png';
 
 
 export const education = [
@@ -36,7 +36,7 @@ export const projects = [
 		title: 'Taskflow',
 		description:
 			'TaskFlow is a modern task management application that helps users organize, prioritize, and track their daily tasks efficiently. It features an intuitive interface for creating, updating, deleting, and managing tasks, providing a seamless and responsive user experience across all devices.',
-		image: game,
+		image: taskManager,
 		tags: [
 			'React JS',
 			'Tailwind CSS',
@@ -79,8 +79,8 @@ export const projects = [
 		id: 3,
 		title: 'AI Expense Tracker',
 		description: 'AI Expense Tracker is a smart personal finance application that helps users track income and expenses with AI-powered insights. It provides real-time expense categorization, financial summaries, and interactive analytics through a clean, responsive interface, enabling users to manage their finances more effectively.',
-		image: port,
-		tags: [
+		image: expenseImage,
+			tags: [
 			'React JS',
 			'Tailwind CSS',
 			'Node JS',
@@ -89,7 +89,7 @@ export const projects = [
 			'Open AI API',
 		],
 		github: 'https://github.com/student-integralcollege/Expense-tracker',
-		webapp: 'https://portfolio-work-31.vercel.app/',
+		webapp: 'https://expense-tracker-client-beta-one.vercel.app',
 	},
 ];
 
