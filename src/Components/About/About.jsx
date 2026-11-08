@@ -18,12 +18,12 @@ export default function About() {
           <div className="mx-auto mt-4 h-1 w-10 rounded-full bg-[var(--text-primary)] lg:mx-0" />
 
           {/* Location */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm font-medium text-[var(--text-secondary)] lg:justify-start">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-sm font-medium text-[var(--text-secondary)] lg:justify-start">
             <MapPin className="h-4 w-4 shrink-0" />
             <span>Lucknow, Uttar Pradesh, India</span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500 bg-emerald-100 px-2.5 py-1 text-[10px] font-semibold text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-300 sm:gap-2 sm:px-4 sm:py-2 sm:text-xs">
+            <span className="inline-flex items-center gap-1 rounded-full border border-emerald-500 bg-emerald-100 px-2 py-0.5 text-[9px] font-semibold text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-300 sm:gap-1.5 sm:px-3 sm:py-1 sm:text-[10px]">
               Open to Work
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500 sm:h-2 sm:w-2" />
+              <span className="h-1 w-1 animate-pulse rounded-full bg-emerald-500 sm:h-1.5 sm:w-1.5" />
             </span>
           </div>
 
